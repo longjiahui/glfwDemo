@@ -1,14 +1,17 @@
 add_rules("mode.debug", "mode.release")
 add_requires("glfw")
 add_requires("glm")
-add_requires("vulkansdk", {system = true})
+add_requires("vulkansdk")
+add_languages("c++20")
 
 target("glfw")
     add_packages("glfw")
     add_packages("glm")
-    add_packages("vulkansdk", {links={}})
+    add_packages("vulkansdk")
     set_kind("binary")
     add_files("src/*.cpp")
+    add_includedirs("include")
+    add_rpathdirs("/usr/local/lib")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
